@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Crafting : MonoBehaviour
 {
@@ -21,14 +19,14 @@ public class Crafting : MonoBehaviour
         {
             if (recipeFound)
             {
-                if(slot.ingredient != Ingredient.Empty)
+                if (slot.ingredient != Ingredient.Empty)
                     recipeFound = false;
                 break;
             }
 
             if (slot.ingredient == ingredients[foundIngredients])
                 foundIngredients++;
-            
+
             else if (slot.ingredient != Ingredient.Empty)
                 break;
 
@@ -41,4 +39,4 @@ public class Crafting : MonoBehaviour
     }
 }
 
-public enum Ingredient { Empty, Hops, Wheat, Barley, Snake};
+public enum Ingredient { Empty, Hops, Wheat, Barley, Snake };
