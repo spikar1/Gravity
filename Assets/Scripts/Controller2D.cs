@@ -11,7 +11,7 @@ public class Controller2D : MonoBehaviour {
     public float verticalRayCount;
 
     [HideInInspector]
-    public BoxCollider2D collider;
+    public BoxCollider2D col;
     RaycastOrigins raycastOrigins;
     public CollisionInfo collisions;
 
@@ -20,7 +20,7 @@ public class Controller2D : MonoBehaviour {
 
     void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
+        col = GetComponent<BoxCollider2D>();
         CalculateRaySpacing();
     }
 
@@ -42,7 +42,7 @@ public class Controller2D : MonoBehaviour {
         }
 
 
-        transform.position += velocity.toVector3() * Time.deltaTime;
+        transform.position += velocity.toVector3();
     }
 
     void HorizontalCollisions(ref Vector2 velocity)
@@ -97,7 +97,7 @@ public class Controller2D : MonoBehaviour {
 
     void UpdateRaycastOrigins()
     {
-        Bounds bounds = collider.bounds;
+        Bounds bounds = col.bounds;
         bounds.Expand(skinWidth * -2);
 
         raycastOrigins.topLeft = new Vector2(bounds.min.x, bounds.max.y);
@@ -108,7 +108,7 @@ public class Controller2D : MonoBehaviour {
 
     void CalculateRaySpacing()
     {
-        Bounds bounds = collider.bounds;
+        Bounds bounds = col.bounds;
         bounds.Expand(skinWidth * -2);
 
         horizontalRayCount = Mathf.Clamp(horizontalRayCount, 2, int.MaxValue);
