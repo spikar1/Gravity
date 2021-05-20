@@ -1,13 +1,46 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Crafting : MonoBehaviour
 {
     public Ingredient[] recipe;
     public bool recipeFound;
 
+    int a, b;
+
+    [ContextMenu("PRINT!")]
+    private void PRINT()
+    {
+        int bitA = 15;
+        int bitB = 3;
+
+        print(bitA | bitB);
+
+        // 0 1111 == 9
+        // 0 0011 == 3
+        // 0 0011 == 1
+        // 0 0000 == 5 
+        // 0 0001 == 1
+        // 0 1111 == 15
+        // 1 1110 == 30
+        //11 1100 == 60
+    }
+
     private void Update()
     {
         recipeFound = CheckRecipe(recipe);
+
+
+
+
+    }
+
+
+    IEnumerator Foo(int i)
+    {
+        yield return new WaitUntil(() => false);
+
+
     }
 
     private bool CheckRecipe(params Ingredient[] ingredients)

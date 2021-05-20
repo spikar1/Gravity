@@ -19,7 +19,7 @@ public class BitmapReader : MonoBehaviour {
     {
         
     }
-
+#if UNITY_EDITOR
     public void BuildLevel()
     {
         /*Transform[] objectsToDestroy = transform.GetComponentsInChildren<Transform>();
@@ -115,21 +115,7 @@ public class BitmapReader : MonoBehaviour {
                 }*/
             }
         }
-    } 
-    
-}
-
-[CustomEditor(typeof(BitmapReader))]
-public class BitmapReaderEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
-
-        BitmapReader myScript = (BitmapReader)target;
-        if (GUILayout.Button("BuildLevel"))
-        {
-            myScript.BuildLevel();
-        }
     }
+#endif
+
 }

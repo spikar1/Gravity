@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Controller2D : MonoBehaviour {
@@ -24,7 +25,7 @@ public class Controller2D : MonoBehaviour {
         CalculateRaySpacing();
     }
 
-
+    //todo: Flytte velocity hit?
     public void Move (Vector2 velocity)
     {
         UpdateRaycastOrigins();
@@ -65,6 +66,7 @@ public class Controller2D : MonoBehaviour {
 
                 collisions.left = directionX == -1;
                 collisions.right = directionX == 1;
+                hit.collider.SendMessage("OnCollisionEnter", SendMessageOptions.DontRequireReceiver);
             }
         }
     }
@@ -87,13 +89,12 @@ public class Controller2D : MonoBehaviour {
                 velocity.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
 
-                collisions.above = directionY == 1;
+                collisions.above = directionY == +1;
                 collisions.below = directionY == -1;
+                hit.collider.SendMessage("OnCollisionEnter", SendMessageOptions.DontRequireReceiver);
             }
         }
     }
-
-
 
     void UpdateRaycastOrigins()
     {
@@ -134,5 +135,11 @@ public class Controller2D : MonoBehaviour {
             above = below = false;
             left = right = false;
         }
+    }
+
+    internal void Warp(Vector3 newPosition)
+    {
+        transform.position = newPosition;
+        
     }
 }
