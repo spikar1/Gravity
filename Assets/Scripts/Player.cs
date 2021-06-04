@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     float deacceleration = .46875f * 64;
 
     [SerializeField]
-    float power = 0;
+    public float power = 0;
     [SerializeField]
     float timeToFillPower = 2;
 
