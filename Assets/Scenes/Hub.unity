@@ -2669,6 +2669,200 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2edec0fc1f5a54a8287b1fd8f99628, type: 3}
+--- !u!1001 &947222030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8107196352852207277, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196353087922244, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300112, guid: b429edc6a6d17a94ab7c6aaea366ffb9,
+        type: 3}
+    - target: {fileID: 8107196354388993404, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_Name
+      value: Doorway 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993405, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: useDebug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: sceneName
+      value: Level_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: useOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: doorwayType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: gizmosColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: gizmosColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: gizmosColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: useLinkedDoor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: linkedDoorIDTo
+      value: HUB_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: teleportOffset.x
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: destinationOneway
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: destinationDoorway
+      value: 
+      objectReference: {fileID: 1012988873}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: hubSectionToUnlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: useDestinationDoorway
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: shouldPromptActivation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"sprites","value":{"$id":0,"$type":"System.Collections.Generic.Dictionary`2[[System.String,
+        mscorlib],[UnityEngine.Sprite, UnityEngine.CoreModule]], mscorlib","comparer":{"$id":1,"$type":"System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib"},"$rlength":2,"$rcontent":[{"$k":"fer","$v":null},{"$k":"f","$v":null}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"sprites","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":1,"$rcontent":[{"$id":1,"$type":"System.String,
+        mscorlib","f"}]},"remove_keys":{"$id":2,"$type":"System.Object[], mscorlib","$rlength":1,"$rcontent":[{"$id":3,"$type":"System.String,
+        mscorlib","SomeOther"}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[2]
+      value: '"path":"sprites.{\"f\"}","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[3]
+      value: '"path":"sprites.{\"fer\"}","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cf2edec0fc1f5a54a8287b1fd8f99628, type: 3}
 --- !u!114 &1012988873 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,

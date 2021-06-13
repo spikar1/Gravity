@@ -48,6 +48,8 @@ public class Player : MonoBehaviour
         controller = GetComponent<Controller2D>();
         anim = GetComponent<Animator>();
 
+        
+
     }
 
     void Update()
