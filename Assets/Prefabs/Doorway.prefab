@@ -81,7 +81,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8107196352852207277}
-  m_Text: Press Up To Enter
+  m_Text: Press ctrl To Enter
   m_OffsetZ: 0
   m_CharacterSize: 0.37
   m_LineSpacing: 1

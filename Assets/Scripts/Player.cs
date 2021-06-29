@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
 
     public MMFeedbacks gravityChangeFeedbacks;
     public MMFeedbacks usePowersFeedbacks;
+    public MMFeedbacks chargePowerFeedback;
 
     private float airTime;
 
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
             if (TryToInteract())
                 return;
 
@@ -126,7 +127,7 @@ public class Player : MonoBehaviour
                     {
                         velocity.x = input.x * maxSpeed;
                         if (grounded)
-                            power = Mathf.Clamp(power + Time.deltaTime * Mathf.Abs(velocity.x), 0, maxPower);
+                            ChargePower();
                     }
                     
                 }
@@ -187,6 +188,19 @@ public class Player : MonoBehaviour
             airTime += Time.deltaTime;
 
         FindTriggers();
+    }
+
+    private void ChargePower()
+    {
+        power = Mathf.Clamp(power + Time.deltaTime * Mathf.Abs(velocity.x), 0, maxPower);
+
+    }
+
+    public void ChargePowerAmount(float amount)
+    {
+        power = Mathf.Clamp(power + amount, 0, maxPower);
+        chargePowerFeedback.PlayFeedbacks();
+            
     }
 
     private void FindTriggers()
