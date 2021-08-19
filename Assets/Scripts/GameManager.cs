@@ -9,13 +9,19 @@ public class GameManager : MonoBehaviour
     static GameManager instance;
     string currentlyUsedLinkedDoorID;
 
-    public static GameManager Instance => instance;
+    public static GameManager Instance {
+        get {
+            if (!instance)
+                instance = new GameObject().AddComponent<GameManager>();
+            return instance;
+        }
+    }
 
     public List<int> hubAreasUnlocked = new List<int>();
 
     public static string CurrentlyUsedLinkedDoorID {
-        get => instance.currentlyUsedLinkedDoorID; 
-        set => instance.currentlyUsedLinkedDoorID = value; 
+        get => Instance.currentlyUsedLinkedDoorID; 
+        set => Instance.currentlyUsedLinkedDoorID = value; 
     }
 
     void Awake()
