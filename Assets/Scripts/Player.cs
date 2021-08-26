@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
 
     public List<int> keyIDs = new List<int>();
 
+
+
     void Start()
     {
         controller = GetComponent<Controller2D>();
@@ -87,13 +89,10 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
             if (grounded)
-                velocity.y = jumpForce * Mathf.Sign(-gravity);
+                Jump();
             else if (power >= 10)
             {
-                velocity.y = jumpForce * Mathf.Sign(-gravity);
-                velocity.x = input.x * maxSpeed;
-                power -= 10;
-                usePowersFeedbacks.PlayFeedbacks();
+                InAirJump(input);
             }
         if (Input.GetKeyDown(KeyCode.DownArrow) && power >= 10)
         {
@@ -188,6 +187,22 @@ public class Player : MonoBehaviour
             airTime += Time.deltaTime;
 
         FindTriggers();
+    }
+
+    private void InAirJump(Vector2 input)
+    {
+        velocity.y = jumpForce * Mathf.Sign(-gravity);
+        velocity.x = input.x * maxSpeed;
+        power -= 10;
+        usePowersFeedbacks.PlayFeedbacks();
+    }
+
+    private void Jump()
+    {
+        if (Mathf.Abs(velocity.x) < maxSpeed)
+            velocity.y = jumpForce * Mathf.Sign(-gravity) * .87f;
+        else
+            velocity.y = jumpForce * Mathf.Sign(-gravity);
     }
 
     private void ChargePower()
