@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
             {
                 instance = new GameObject().AddComponent<GameManager>();
                 instance.name = "Game Manager";
-                print("I'm doing it!");
             }
             return instance;
         }

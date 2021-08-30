@@ -64,6 +64,12 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        GameManager.Instance.restartLevelDelegate -= ResetPlayer;
+        GameManager.Instance.levelClearedDelegate -= LevelCleared;
+    }
+
     private void LevelCleared()
     {
         gameObject.SetActive(false);
@@ -317,5 +323,10 @@ public class Player : MonoBehaviour
         isDead = true;
         yield return new WaitForSecondsRealtime(.5f);
         GameManager.Instance.RestartLevel();
+    }
+
+    private void OnDestroy()
+    {
+        print("WHEN DOES THIS HAPPEN?");
     }
 }
