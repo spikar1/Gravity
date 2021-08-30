@@ -20,14 +20,19 @@ public class Crystal : MonoBehaviour, ITriggerable
 
     private void Awake()
     {
-        originalPos = transform.position;
         randomOffset = Random.value * Mathf.PI;
+        originalPos = transform.position;
 
         feedbacks = GetComponent<MMFeedbacks>();
     }
 
+
+
     private void Update()
     {
+        if (disabled)
+            return;
+
         transform.position = new Vector3(
             originalPos.x,
             originalPos.y + Mathf.Sin(randomOffset + Time.time* freq * Mathf.PI) * amp,
@@ -38,7 +43,7 @@ public class Crystal : MonoBehaviour, ITriggerable
     {
         if (disabled)
             return;
-        disabled = true;
+        
         particles.transform.right = player.velocity + ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
         particles.Play();
         var main = particles.main;
@@ -46,6 +51,13 @@ public class Crystal : MonoBehaviour, ITriggerable
         player.ChargePowerAmount(5);
         GetComponent<SpriteRenderer>().enabled = false;
         feedbacks.PlayFeedbacks();
-        Destroy(gameObject, 2);
+        disabled = true;
+
+    }
+
+    void OnObjectReset()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+        disabled = false;
     }
 }

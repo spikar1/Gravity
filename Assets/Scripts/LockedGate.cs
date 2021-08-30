@@ -23,7 +23,13 @@ public class LockedGate : MonoBehaviour
             if (otherGate && otherGate.gateLockID == gateLockID)
                 otherGate.StartCoroutine(otherGate.OpenGate());
         }
-        Destroy(gameObject);
+        GetComponent<ResetObjectOnLevelReset>().DisableObject();
+
+    }
+
+    void OnObjectReset()
+    {
+        StopAllCoroutines();
     }
 
     internal void Unlock()

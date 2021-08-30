@@ -105,7 +105,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -4876,6 +4876,7 @@ GameObject:
   - component: {fileID: 1626099622165764360}
   - component: {fileID: 5505235993278218879}
   - component: {fileID: 1800295895017338624}
+  - component: {fileID: 6487164216521852740}
   m_Layer: 0
   m_Name: Crystal
   m_TagString: Untagged
@@ -5044,3 +5045,15 @@ MonoBehaviour:
     TargetBPM: 120
   DebugActive: 0
   FreezeFrameDuration: 0.015
+--- !u!114 &6487164216521852740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626099622165764363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda9986dbbd53c742b1a63aec8d8fc89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,5 +1,6 @@
 ﻿using MoreMountains.Feedbacks;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,8 @@ public class Player : MonoBehaviour
 
     public Vector2 velocity;
     public LayerMask traps;
+
+    float StandardGravity = -0.5625f * 64;
 
     float gravity = -0.5625f * 64;
     float maxFallSpeed = 18.75f;// 10;
@@ -39,24 +42,49 @@ public class Player : MonoBehaviour
     public MMFeedbacks gravityChangeFeedbacks;
     public MMFeedbacks usePowersFeedbacks;
     public MMFeedbacks chargePowerFeedback;
+    public MMFeedbacks onDeathFeedback;
 
     private float airTime;
 
     public List<int> keyIDs = new List<int>();
+    private bool isDead;
+    private bool CanJump => coyoteTime < .03f;
+    public float coyoteTime;
 
-
+    private Vector3 startPosition;
 
     void Start()
     {
         controller = GetComponent<Controller2D>();
         anim = GetComponent<Animator>();
 
-        
+        startPosition = transform.position;
+        GameManager.Instance.restartLevelDelegate += ResetPlayer;
+        GameManager.Instance.levelClearedDelegate += LevelCleared;
 
+    }
+
+    private void LevelCleared()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void ResetPlayer()
+    {
+        transform.position = startPosition;
+        power = 0;
+        gravity = StandardGravity;
+        isDead = false;
+        velocity = new Vector2();
+        Time.timeScale = 1;
+        keyIDs.Clear();
     }
 
     void Update()
     {
+
+        if (isDead)
+            return;
 
         if (Input.GetKeyDown(KeyCode.O))
             power = 100;
@@ -84,11 +112,21 @@ public class Player : MonoBehaviour
         }
 
         grounded = (gravity > 0) ? controller.collisions.above : controller.collisions.below;
+        if (grounded)
+            coyoteTime = 0;
+        
+        else
+            coyoteTime += Time.deltaTime;
         anim.SetBool("Grounded", grounded);
+
+        //DEBUG
+        if(CanJump)
+            Debug.DrawLine(GetComponent<Collider2D>().bounds.min, GetComponent<Collider2D>().bounds.min + Vector3.up * .1f, Color.white, 10);
+        //ENDDEBUG
 
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
-            if (grounded)
+            if (CanJump)
                 Jump();
             else if (power >= 10)
             {
@@ -175,9 +213,7 @@ public class Player : MonoBehaviour
 
         if (Physics2D.OverlapArea(transform.position - controller.col.bounds.extents * .8f, transform.position + controller.col.bounds.extents * .8f, traps))
         {
-            Scene scene = SceneManager.GetActiveScene();
-            //SceneManager.UnloadScene(SceneManager.GetActiveScene().buildIndex); 
-            SceneManager.LoadScene(scene.buildIndex);
+            DoDamage(); //todo: move to trap class when created IE Create trap class
         }
         if(powerBar)
             powerBar.rectTransform.sizeDelta = new Vector2(power, 50);
@@ -200,7 +236,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         if (Mathf.Abs(velocity.x) < maxSpeed)
-            velocity.y = jumpForce * Mathf.Sign(-gravity) * .87f;
+            velocity.y = jumpForce * Mathf.Sign(-gravity);
         else
             velocity.y = jumpForce * Mathf.Sign(-gravity);
     }
@@ -268,5 +304,18 @@ public class Player : MonoBehaviour
     private void OnGUI()
     {
         GUI.Label(new Rect(0, 0, 150, 50), "air time: " + airTime);
+    }
+
+    public void DoDamage()
+    {
+        StartCoroutine(DeathSequence());
+    }
+
+    private IEnumerator DeathSequence()
+    {
+        onDeathFeedback.PlayFeedbacks();
+        isDead = true;
+        yield return new WaitForSecondsRealtime(.5f);
+        GameManager.Instance.RestartLevel();
     }
 }

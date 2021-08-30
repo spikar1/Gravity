@@ -9,10 +9,27 @@ public class GameManager : MonoBehaviour
     static GameManager instance;
     string currentlyUsedLinkedDoorID;
 
+    public delegate void MyDelegate();
+    public MyDelegate restartLevelDelegate;
+    public MyDelegate levelClearedDelegate;
+
+    [ContextMenu("DEBUG")]
+    void DEBUG()
+    {
+        foreach (var item in restartLevelDelegate.GetInvocationList())
+        {
+            print(item.Target);
+        }
+    }
+
     public static GameManager Instance {
         get {
             if (!instance)
+            {
                 instance = new GameObject().AddComponent<GameManager>();
+                instance.name = "Game Manager";
+                print("I'm doing it!");
+            }
             return instance;
         }
     }
@@ -65,5 +82,17 @@ public class GameManager : MonoBehaviour
                 go.gameObject.BroadcastMessage(fun, msg, SendMessageOptions.DontRequireReceiver);
             }
         }
+    }
+
+    internal void RestartLevel()
+    {
+        Time.timeScale = 1;
+        restartLevelDelegate.Invoke();
+
+    }
+
+    internal void LevelCleared()
+    {
+        levelClearedDelegate.Invoke();
     }
 }

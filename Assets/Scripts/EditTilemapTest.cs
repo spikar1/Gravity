@@ -17,17 +17,13 @@ public class EditTilemapTest : MonoBehaviour
 
     public MMFeedbacks feedbacks;
 
-    private void Awake()
+
+    private IEnumerator Start()
     {
         if (GameManager.Instance.hubAreasUnlocked.Contains(1))
         {
             gameObject.SetActive(false);
-            return;
         }
-    }
-
-    private IEnumerator Start()
-    {
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.P) || unlockLevel);
         feedbacks.PlayFeedbacks();

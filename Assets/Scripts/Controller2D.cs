@@ -16,6 +16,8 @@ public class Controller2D : MonoBehaviour {
     RaycastOrigins raycastOrigins;
     public CollisionInfo collisions;
 
+    private float coyoteLandingLeeway = .1f;
+
     float horizontalRaySpacing;
     float verticalRaySpacing;
 
@@ -61,14 +63,36 @@ public class Controller2D : MonoBehaviour {
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
             if (hit)
             {
+                if(i == 0 && CheckCoyoteLanding(ref velocity))
+                {
+                    transform.position += (Vector3)(Vector3.right * Mathf.Sign(velocity.x) * hit.distance * 1.3f);
+                    return;
+                }
+
                 velocity.x = (hit.distance - skinWidth) * directionX;
                 rayLength = hit.distance;
 
                 collisions.left = directionX == -1;
                 collisions.right = directionX == 1;
                 hit.collider.SendMessage("OnCollisionEnter", SendMessageOptions.DontRequireReceiver);
+                return;
             }
         }
+    }
+
+    private bool CheckCoyoteLanding(ref Vector2 velocity)
+    {
+        float directionX = Mathf.Sign(velocity.x);
+        float rayLength = Mathf.Abs(velocity.x) + skinWidth;
+
+        Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
+        rayOrigin += Vector2.up * coyoteLandingLeeway;
+
+        Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.magenta, 10);
+
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
+
+        return hit ? false : true;
     }
 
     void VerticalCollisions( ref Vector2 velocity)

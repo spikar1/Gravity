@@ -10,7 +10,7 @@ using System;
 [SelectionBase]
 public class Doorway : SerializedMonoBehaviour, IInteractable
 {
-    public enum DoorwayType { Teleporter, SceneChanger }
+    public enum DoorwayType { Teleporter, SceneChanger, LevelClear }
     [EnumToggleButtons] [HideLabel]
     public DoorwayType doorwayType = DoorwayType.Teleporter;
 
@@ -62,6 +62,11 @@ public class Doorway : SerializedMonoBehaviour, IInteractable
     [SerializeField]
     [ShowIf("@this.doorwayType == DoorwayType.SceneChanger && this.useLinkedDoor == true")]
     string linkedDoorIDFrom = "";
+
+
+    #endregion
+    #region LevelClearSpecific
+
 
 
     #endregion
@@ -212,6 +217,11 @@ public class Doorway : SerializedMonoBehaviour, IInteractable
     */
     public void OnInteract(Controller2D controller)
     {
+        if (doorwayType == DoorwayType.LevelClear)
+        {
+            GameManager.Instance.LevelCleared();
+            return;
+        }
         if(doorwayType == DoorwayType.SceneChanger)
         {
             if (useLinkedDoor)
