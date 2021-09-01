@@ -59,15 +59,15 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         startPosition = transform.position;
-        GameManager.Instance.restartLevelDelegate += ResetPlayer;
-        GameManager.Instance.levelClearedDelegate += LevelCleared;
+        LevelManager.Instance.restartLevelDelegate += ResetPlayer;
+        LevelManager.Instance.levelClearedDelegate += LevelCleared;
 
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.restartLevelDelegate -= ResetPlayer;
-        GameManager.Instance.levelClearedDelegate -= LevelCleared;
+        LevelManager.Instance.restartLevelDelegate -= ResetPlayer;
+        LevelManager.Instance.levelClearedDelegate -= LevelCleared;
     }
 
     private void LevelCleared()
@@ -322,7 +322,7 @@ public class Player : MonoBehaviour
         onDeathFeedback.PlayFeedbacks();
         isDead = true;
         yield return new WaitForSecondsRealtime(.5f);
-        GameManager.Instance.RestartLevel();
+        LevelManager.Instance.RestartLevel();
     }
 
     private void OnDestroy()

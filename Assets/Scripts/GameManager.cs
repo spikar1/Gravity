@@ -9,18 +9,6 @@ public class GameManager : MonoBehaviour
     static GameManager instance;
     string currentlyUsedLinkedDoorID;
 
-    public delegate void MyDelegate();
-    public MyDelegate restartLevelDelegate;
-    public MyDelegate levelClearedDelegate;
-
-    [ContextMenu("DEBUG")]
-    void DEBUG()
-    {
-        foreach (var item in restartLevelDelegate.GetInvocationList())
-        {
-            print(item.Target);
-        }
-    }
 
     public static GameManager Instance {
         get {
@@ -83,15 +71,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    internal void RestartLevel()
-    {
-        Time.timeScale = 1;
-        restartLevelDelegate.Invoke();
 
-    }
-
-    internal void LevelCleared()
-    {
-        levelClearedDelegate.Invoke();
-    }
 }

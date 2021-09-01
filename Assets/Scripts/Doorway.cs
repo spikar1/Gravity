@@ -219,7 +219,7 @@ public class Doorway : SerializedMonoBehaviour, IInteractable
     {
         if (doorwayType == DoorwayType.LevelClear)
         {
-            GameManager.Instance.LevelCleared();
+            LevelManager.Instance.LevelCleared();
             return;
         }
         if(doorwayType == DoorwayType.SceneChanger)

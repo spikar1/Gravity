@@ -11,7 +11,7 @@ public class ResetObjectOnLevelReset : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.restartLevelDelegate += ResetObject;
+        LevelManager.Instance.restartLevelDelegate += ResetObject;
         startPosition = transform.position;
     }
 
@@ -31,6 +31,6 @@ public class ResetObjectOnLevelReset : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.Instance.restartLevelDelegate -= ResetObject;
+        LevelManager.Instance.restartLevelDelegate -= ResetObject;
     }
 }

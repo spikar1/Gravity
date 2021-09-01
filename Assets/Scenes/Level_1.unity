@@ -564,7 +564,7 @@ PrefabInstance:
     - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
         type: 3}
       propertyPath: doorwayType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
         type: 3}
@@ -5681,13 +5681,8 @@ PrefabInstance:
     - target: {fileID: 250118399623641615, guid: ef8586e3e0ecaf443b6f11fd8718aff8,
         type: 3}
       propertyPath: m_Name
-      value: SceneRecorder
+      value: Level Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 250118399623642097, guid: ef8586e3e0ecaf443b6f11fd8718aff8,
-        type: 3}
-      propertyPath: rendererToRecord
-      value: 
-      objectReference: {fileID: 950482012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef8586e3e0ecaf443b6f11fd8718aff8, type: 3}
 --- !u!1001 &810113024
@@ -5874,12 +5869,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &950482012 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5384636304513111121, guid: f66b2b1564eb1174e9b0dd84203db555,
-    type: 3}
-  m_PrefabInstance: {fileID: 5384636305351560972}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1037430830
 PrefabInstance:
   m_ObjectHideFlags: 0
