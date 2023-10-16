@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
 
     float StandardGravity = -0.5625f * 64;
 
-    float gravity = -0.5625f * 64;
+    public static float gravity = -0.5625f * 64;
     float maxFallSpeed = 18.75f;// 10;
     float maxSpeed = 11.25f;
     float jumpForce = 15.5f;
@@ -52,6 +53,9 @@ public class Player : MonoBehaviour
     public float coyoteTime;
 
     private Vector3 startPosition;
+    private ITriggerable lastTriggerTriggered;
+    List<ITriggerable> triggersThisRound = new List<ITriggerable>();
+    List<ITriggerable> triggersLastRound = new List<ITriggerable>();
 
     void Start()
     {
@@ -131,14 +135,14 @@ public class Player : MonoBehaviour
         //ENDDEBUG
 
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             if (CanJump)
                 Jump();
             else if (power >= 10)
             {
                 InAirJump(input);
             }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && power >= 10)
+        if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && power >= 10)
         {
             velocity.x = 0;
             velocity.y = Mathf.Sign(gravity) * maxFallSpeed * 2;
@@ -147,7 +151,7 @@ public class Player : MonoBehaviour
         }
 
 
-        if (Input.GetKeyUp(KeyCode.UpArrow) && Mathf.Sign(gravity) != Mathf.Sign(velocity.y))
+        if ((Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)) && Mathf.Sign(gravity) != Mathf.Sign(velocity.y))
             velocity.y *= .5f;
 
         if (input.x != 0)
@@ -262,16 +266,34 @@ public class Player : MonoBehaviour
 
     private void FindTriggers()
     {
-        foreach (var trigger in Physics2D.OverlapBoxAll(transform.position, controller.col.bounds.size, 0))
+        var nearbyColliders = Physics2D.OverlapBoxAll(transform.position, controller.col.bounds.size, 0);
+
+
+        foreach (var trigger in nearbyColliders)
         {
             var triggerable = trigger.GetComponent<ITriggerable>();
+            if (triggerable == null)
+                continue;
 
-            if (triggerable != null)
+            if (!triggersLastRound.Contains(triggerable))
             {
-                Debug.DrawLine(transform.position, trigger.transform.position, Color.red, 10);
-                triggerable.OnTrigger(this);
+                triggerable.OnTriggerArrive(this);
+            }
+            triggerable.OnTrigger(this);
+
+            triggersThisRound.Add(triggerable);
+        }
+        foreach (var trigger in triggersLastRound)
+        {
+            if (!triggersThisRound.Contains(trigger))
+            {
+                trigger.OnTriggerLeave(this);
+
             }
         }
+
+        triggersLastRound = triggersThisRound;
+        triggersThisRound = new List<ITriggerable>();
     }
 
     private void FindProximityObjects()
@@ -325,8 +347,4 @@ public class Player : MonoBehaviour
         LevelManager.Instance.RestartLevel();
     }
 
-    private void OnDestroy()
-    {
-        print("WHEN DOES THIS HAPPEN?");
-    }
 }

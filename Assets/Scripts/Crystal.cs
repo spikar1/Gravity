@@ -60,4 +60,12 @@ public class Crystal : MonoBehaviour, ITriggerable
         GetComponent<SpriteRenderer>().enabled = true;
         disabled = false;
     }
+
+    public void OnTriggerLeave(Player player)
+    {
+    }
+
+    public void OnTriggerArrive(Player player)
+    {
+    }
 }

@@ -8,8 +8,15 @@ public class PreLoader : MonoBehaviour
     [SerializeField]
     private string sceneToLoad;
 
+    [SerializeField]
+    private bool ignoreAllButLoading = false;
+
     private void Start()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        if (ignoreAllButLoading)
+            SceneManager.LoadScene(sceneToLoad);
+        else
+            return;
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
     }
 }

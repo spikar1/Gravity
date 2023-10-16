@@ -249,7 +249,7 @@ TextureImporter:
       213: 21300162
     second: Tiles_144
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -270,6 +270,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -280,7 +281,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: 16
-    mipBias: -100
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -308,6 +309,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -359,6 +361,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -2104,6 +2118,89 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Tiles_43: 21300054
+      Tiles_83: 21300102
+      Tiles_139: 21300152
+      Tiles_97: 21300106
+      Tiles_41: 21300050
+      Tiles_57: 21300066
+      Tiles_102: 21300116
+      Tiles_116: 21300122
+      Tiles_78: 21300092
+      Tiles_44: 21300056
+      Tiles_98: 21300108
+      Tiles_117: 21300124
+      Tiles_1: 21300002
+      Tiles_77: 21300090
+      Tiles_59: 21300070
+      Tiles_62: 21300076
+      Tiles_56: 21300064
+      Tiles_84: 21300104
+      Tiles_0: 21300000
+      Tiles_138: 21300150
+      Tiles_123: 21300136
+      Tiles_79: 21300094
+      Tiles_5: 21300010
+      Tiles_39: 21300046
+      Tiles_143: 21300160
+      Tiles_25: 21300034
+      Tiles_6: 21300012
+      Tiles_17: 21300018
+      Tiles_38: 21300044
+      Tiles_140: 21300154
+      Tiles_136: 21300146
+      Tiles_133: 21300140
+      Tiles_42: 21300052
+      Tiles_103: 21300118
+      Tiles_124: 21300138
+      Tiles_23: 21300030
+      Tiles_26: 21300036
+      Tiles_60: 21300072
+      Tiles_101: 21300114
+      Tiles_20: 21300024
+      Tiles_54: 21300060
+      Tiles_121: 21300132
+      Tiles_22: 21300028
+      Tiles_142: 21300158
+      Tiles_134: 21300142
+      Tiles_63: 21300078
+      Tiles_27: 21300038
+      Tiles_2: 21300004
+      Tiles_55: 21300062
+      Tiles_73: 21300082
+      Tiles_21: 21300026
+      Tiles_24: 21300032
+      Tiles_58: 21300068
+      Tiles_104: 21300120
+      Tiles_81: 21300098
+      Tiles_18: 21300020
+      Tiles_82: 21300100
+      Tiles_141: 21300156
+      Tiles_122: 21300134
+      Tiles_7: 21300014
+      Tiles_40: 21300048
+      Tiles_4: 21300008
+      Tiles_74: 21300084
+      Tiles_53: 21300058
+      Tiles_61: 21300074
+      Tiles_75: 21300086
+      Tiles_76: 21300088
+      Tiles_137: 21300148
+      Tiles_118: 21300126
+      Tiles_37: 21300042
+      Tiles_135: 21300144
+      Tiles_19: 21300022
+      Tiles_80: 21300096
+      Tiles_64: 21300080
+      Tiles_100: 21300112
+      Tiles_99: 21300110
+      Tiles_144: 21300162
+      Tiles_3: 21300006
+      Tiles_8: 21300016
+      Tiles_36: 21300040
+      Tiles_120: 21300130
+      Tiles_119: 21300128
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

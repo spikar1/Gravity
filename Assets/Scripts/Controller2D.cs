@@ -51,6 +51,8 @@ public class Controller2D : MonoBehaviour {
     void HorizontalCollisions(ref Vector2 velocity)
     {
         float directionX = Mathf.Sign(velocity.x);
+        float directionY = Mathf.Sign(velocity.y);
+
         float rayLength = Mathf.Abs(velocity.x) + skinWidth;
 
         for (int i = 0; i < horizontalRayCount; i++)
@@ -63,7 +65,10 @@ public class Controller2D : MonoBehaviour {
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
             if (hit)
             {
-                if(i == 0 && CheckCoyoteLanding(ref velocity))
+                if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "Platform" && (directionY != Mathf.Sign(Player.gravity) || directionY == 0)))
+                    return;
+
+                if (i == 0 && CheckCoyoteLanding(ref velocity))
                 {
                     transform.position += (Vector3)(Vector3.right * Mathf.Sign(velocity.x) * hit.distance * 1.3f);
                     return;
@@ -110,9 +115,10 @@ public class Controller2D : MonoBehaviour {
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
             if (hit)
             {
-                velocity.y = (hit.distance - skinWidth) * directionY;
-                rayLength = hit.distance;
+                if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "Platform" && (directionY != Mathf.Sign(Player.gravity) || directionY == 0)))
+                    return;
 
+                velocity.y = (hit.distance - skinWidth) * directionY;
                 collisions.above = directionY == +1;
                 collisions.below = directionY == -1;
                 hit.collider.SendMessage("OnCollisionEnter", SendMessageOptions.DontRequireReceiver);

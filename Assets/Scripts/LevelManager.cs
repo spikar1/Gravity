@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,6 +19,17 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && levelCleared)
+        {
+            levelCleared = false;
+            newSceneLoaded?.Invoke();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
     void Awake()
     {
         if (!instance)
@@ -32,6 +44,8 @@ public class LevelManager : MonoBehaviour
     public delegate void MyDelegate();
     public MyDelegate restartLevelDelegate;
     public MyDelegate levelClearedDelegate;
+    public MyDelegate newSceneLoaded;
+    private bool levelCleared;
 
     [ContextMenu("Delegate DEBUG")]
     void DEBUG()
@@ -52,5 +66,6 @@ public class LevelManager : MonoBehaviour
     internal void LevelCleared()
     {
         levelClearedDelegate.Invoke();
+        levelCleared = true;
     }
 }

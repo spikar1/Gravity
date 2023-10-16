@@ -16,6 +16,8 @@ namespace SteffenTools.Extensions
         public static void DrawArc(Vector3 pos1, Vector3 pos2, float heightScale = 1)
         {
 
+
+
             Color c = Gizmos.color;
 
             int divisions = 15;

@@ -231,7 +231,7 @@ TextureImporter:
       213: 4890195377758571762
     second: coolTiles_75
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -252,6 +252,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -261,8 +262,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -290,6 +291,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -341,6 +343,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -1960,6 +1974,83 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      coolTiles_22: -4996337267892010357
+      coolTiles_43: 5463648061876329186
+      coolTiles_50: 7076795549123140922
+      coolTiles_40: 6781948461212833728
+      coolTiles_3: 5898555347459158865
+      coolTiles_70: 5892434307562856131
+      coolTiles_1: -6581000343148424307
+      coolTiles_18: 881265847356092973
+      coolTiles_52: 6686258452048236811
+      coolTiles_26: 3625472342928413833
+      coolTiles_63: -6112948785092262253
+      coolTiles_39: -6852116940016713238
+      coolTiles_67: 268654522832682517
+      coolTiles_69: 2995284224523539786
+      coolTiles_15: -1539243840973779705
+      coolTiles_29: 555235654349462540
+      coolTiles_30: -320288053646514018
+      coolTiles_66: -3854579045034161871
+      coolTiles_34: -1863432404621282843
+      coolTiles_42: 4890058717025877012
+      coolTiles_28: -2687970367743866129
+      coolTiles_0: -8420939299584286805
+      coolTiles_24: 7645502897649795662
+      coolTiles_2: -3761568747562751498
+      coolTiles_35: -4052625682185993335
+      coolTiles_46: 4236805747069919412
+      coolTiles_65: 1421877417048832534
+      coolTiles_11: -7673188818774244439
+      coolTiles_51: -260913309701125960
+      coolTiles_41: 6564579402467921114
+      coolTiles_36: -1873850885640339219
+      coolTiles_56: 4509880062143012896
+      coolTiles_47: -5492933149478738020
+      coolTiles_58: 2944980580038703274
+      coolTiles_73: 2565159336467521281
+      coolTiles_14: -2801209738197911178
+      coolTiles_16: -3317014062878985789
+      coolTiles_17: 3473302172101333154
+      coolTiles_33: 9107863327369936089
+      coolTiles_60: -4892445741170953938
+      coolTiles_55: -4494643051515891023
+      coolTiles_4: 6077728887165891359
+      coolTiles_23: 6258388848937567560
+      coolTiles_59: -7163255117530336149
+      coolTiles_8: -3811767089434172852
+      coolTiles_31: -6725138389661307649
+      coolTiles_13: -1998887074169197549
+      coolTiles_5: 3084579681642628794
+      coolTiles_62: 2867863514448059010
+      coolTiles_61: -5574578935388998831
+      coolTiles_45: 556314405462711006
+      coolTiles_44: -54350329116732097
+      coolTiles_12: -6778096998617962587
+      coolTiles_27: -7502244055343503308
+      coolTiles_32: -2818539411312309395
+      coolTiles_19: 4645117117806439915
+      coolTiles_68: -6363507602755844152
+      coolTiles_21: 6364454453236885308
+      coolTiles_54: 142289609339062359
+      coolTiles_9: -587784720052847141
+      coolTiles_57: -5042685161087055094
+      coolTiles_72: -1557837817884642814
+      coolTiles_74: -2043471065930318750
+      coolTiles_20: -1008935259823853537
+      coolTiles_48: 2724997626372630226
+      coolTiles_49: 910118078534728775
+      coolTiles_37: 3258202056321445563
+      coolTiles_38: -3219477977190812782
+      coolTiles_7: -8699756246962591102
+      coolTiles_10: 7706058001415765882
+      coolTiles_75: 4890195377758571762
+      coolTiles_6: -6339035489985395476
+      coolTiles_64: 6261614379485751570
+      coolTiles_25: -6917120715604111920
+      coolTiles_71: 6674774484380755153
+      coolTiles_53: -2914784410163764720
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

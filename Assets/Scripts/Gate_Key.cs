@@ -14,4 +14,11 @@ public class Gate_Key : MonoBehaviour, ITriggerable
         GetComponent<ResetObjectOnLevelReset>().DisableObject();
     }
 
+    public void OnTriggerArrive(Player player)
+    {
+    }
+
+    public void OnTriggerLeave(Player player)
+    {
+    }
 }

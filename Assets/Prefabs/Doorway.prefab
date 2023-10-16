@@ -721,6 +721,7 @@ MonoBehaviour:
   useLinkedDoor: 0
   linkedDoorIDFrom: 
   shouldPromptActivation: 0
+  playPlaybacks: 1
   promptActivationUI: {fileID: 8107196352852207277}
   useDebug: 1
   printDebugMessages: 0

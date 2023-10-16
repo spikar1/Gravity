@@ -573,6 +573,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
         type: 3}
+      propertyPath: playPlaybacks
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
       propertyPath: useLinkedDoor
       value: 1
       objectReference: {fileID: 0}
@@ -600,7 +605,8 @@ PrefabInstance:
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8107196354388993406, guid: cf2edec0fc1f5a54a8287b1fd8f99628,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2edec0fc1f5a54a8287b1fd8f99628, type: 3}
 --- !u!1001 &383824513

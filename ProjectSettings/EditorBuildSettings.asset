@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/AdditiveLoad Levels/Pre Loader.unity
+    guid: 3fc7d1ab27bdf8e448e284707bc8b487
+  - enabled: 1
+    path: Assets/Scenes/Basic Movement.unity
+    guid: 41815b78e6214914baff9ebcf6351d54
+  - enabled: 1
     path: Assets/Scenes/Preloader.unity
     guid: 74ee9a5a6fc381a489962240408ebd17
   - enabled: 1
@@ -35,4 +41,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_8.unity
     guid: 74e136f71ede084448956f0cfc058f55
+  - enabled: 1
+    path: Assets/Scenes/AdditiveLoad Levels/1_1.unity
+    guid: 6986371488967f443ba389727273f87c
+  - enabled: 1
+    path: Assets/Scenes/AdditiveLoad Levels/2_1.unity
+    guid: cae9b5d612a5a3d419ba2b1e1ada2b95
+  - enabled: 1
+    path: Assets/Scenes/AdditiveLoad Levels/3_1.unity
+    guid: 5da193ba6f38d0448a68c49771db704a
+  - enabled: 1
+    path: Assets/Scenes/AdditiveLoad Levels/4_1.unity
+    guid: 10d5ea30beac7e845a32eaec30fea092
+  - enabled: 1
+    path: Assets/Scenes/AdditiveLoad Levels/1_2.unity
+    guid: df4ae3a07a77a1245863a456add08cd6
+  - enabled: 1
+    path: Assets/Scenes/AdditiveLoad Levels/2_2.unity
+    guid: b5cad0114097d304ca41b0d6402aa23a
   m_configObjects: {}

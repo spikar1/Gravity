@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Shapes;
+using UnityEngine.SceneManagement;
 
 public class AttemptsRecorder : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class AttemptsRecorder : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
             Playback();
+
     }
 
     IEnumerator Start()
@@ -47,6 +49,27 @@ public class AttemptsRecorder : MonoBehaviour
 
             yield return new WaitForSeconds(snapshotInterval);
         }
+    }
+
+    private void OnEnable()
+    {
+        LevelManager.Instance.newSceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        LevelManager.Instance.levelClearedDelegate -= Playback;
+        LevelManager.Instance.newSceneLoaded -= OnSceneLoaded;
+        
+    }
+
+    void OnSceneLoaded()
+    {
+        foreach (var item in spawnedReplayObjects)
+        {
+            Destroy(item.gameObject);
+        }
+        spawnedReplayObjects.Clear();
     }
 
     [ContextMenu("Playback")]

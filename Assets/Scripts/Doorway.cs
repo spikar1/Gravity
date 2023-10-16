@@ -10,7 +10,7 @@ using System;
 [SelectionBase]
 public class Doorway : SerializedMonoBehaviour, IInteractable
 {
-    public enum DoorwayType { Teleporter, SceneChanger, LevelClear }
+    public enum DoorwayType { Teleporter, SceneChanger, GoToNextBuildIndex }
     [EnumToggleButtons] [HideLabel]
     public DoorwayType doorwayType = DoorwayType.Teleporter;
 
@@ -75,6 +75,8 @@ public class Doorway : SerializedMonoBehaviour, IInteractable
     [SerializeField]
     bool shouldPromptActivation = true;
 
+    [SerializeField]
+    bool playPlaybacks = true;
     void SetPromptUI()
     {
         if (promptActivationUI)
@@ -217,19 +219,25 @@ public class Doorway : SerializedMonoBehaviour, IInteractable
     */
     public void OnInteract(Controller2D controller)
     {
-        if (doorwayType == DoorwayType.LevelClear)
+        if (doorwayType == DoorwayType.GoToNextBuildIndex)
         {
-            LevelManager.Instance.LevelCleared();
+            if(playPlaybacks)
+                LevelManager.Instance.LevelCleared();
             return;
         }
         if(doorwayType == DoorwayType.SceneChanger)
         {
-            if (useLinkedDoor)
-                GameManager.CurrentlyUsedLinkedDoorID = linkedDoorIDFrom;
+            if(playPlaybacks)
+                LevelManager.Instance.LevelCleared();
             else
-                GameManager.CurrentlyUsedLinkedDoorID = "";
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-            return;
+            {
+                if (useLinkedDoor)
+                    GameManager.CurrentlyUsedLinkedDoorID = linkedDoorIDFrom;
+                else
+                    GameManager.CurrentlyUsedLinkedDoorID = "";
+                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+                return;
+            }
         }
         if (useDestinationDoorway)
             destinationDoorway.IsTeleportedTo();
