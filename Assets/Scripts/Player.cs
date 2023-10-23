@@ -90,8 +90,17 @@ public class Player : MonoBehaviour
         keyIDs.Clear();
     }
 
+    private void OnEnable()
+    {
+
+        Shader.SetGlobalVector("PlayerPosition", transform.position);
+    }
+
     void Update()
     {
+
+        Shader.SetGlobalVector("PlayerPosition", transform.position);
+
 
         if (isDead)
             return;
