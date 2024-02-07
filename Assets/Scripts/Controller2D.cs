@@ -27,7 +27,7 @@ public class Controller2D : MonoBehaviour {
         CalculateRaySpacing();
     }
 
-    //todo: Flytte velocity hit?
+
     public void Move (Vector2 velocity)
     {
         UpdateRaycastOrigins();

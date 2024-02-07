@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// Creates an object that behaves like a projectile and destroys self
+/// </summary>
 internal class Projectile : MonoBehaviour
 {
     Transform target;

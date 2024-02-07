@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -204,6 +205,9 @@ public class AdditiveLevelLoader : SerializedMonoBehaviour
         public int horizontalOffset = 0;
         public int verticalOffset = 0;
 
+        [SerializeField]
+        SceneAsset sceneAsset;
+
         public Vector2 Center => new(
             (horizontalOffset * screenWidthMeters) + (levelWidth * screenWidthMeters / 2) - screenWidthMeters / 2,
             (verticalOffset * screenHeightMeters) + (levelHeight * screenHeightMeters / 2) - screenHeightMeters / 2);
@@ -211,6 +215,7 @@ public class AdditiveLevelLoader : SerializedMonoBehaviour
         public Vector2 Offset => new(horizontalOffset, verticalOffset);
 
 
+        //constructor
         public Level(string name)
         {
             this.name = name;

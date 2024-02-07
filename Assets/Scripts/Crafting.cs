@@ -25,22 +25,10 @@ public class Crafting : MonoBehaviour
         // 1 1110 == 30
         //11 1100 == 60
     }
-
+    
     private void Update()
     {
         recipeFound = CheckRecipe(recipe);
-
-
-
-
-    }
-
-
-    IEnumerator Foo(int i)
-    {
-        yield return new WaitUntil(() => false);
-
-
     }
 
     private bool CheckRecipe(params Ingredient[] ingredients)

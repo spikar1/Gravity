@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(currentlyUsedLinkedDoorID != "")
@@ -69,7 +70,6 @@ public class GameManager : MonoBehaviour
                 go.gameObject.BroadcastMessage(fun, msg, SendMessageOptions.DontRequireReceiver);
             }
         }
+
     }
-
-
 }
